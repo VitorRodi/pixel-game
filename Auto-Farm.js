@@ -1,7 +1,7 @@
 (async () => {
   const CONFIG = {
-    START_X: 739,
-    START_Y: 3894,
+    START_X: 742,
+    START_Y: 1148,
     PIXELS_PER_LINE: 100,
     DELAY: 1000,
     THEME: {
@@ -46,13 +46,20 @@
   });
 
   const paintPixel = async (x, y) => {
-    const randomColor = Math.floor(Math.random() * 31) + 1;
-    return await fetchAPI(`https://backend.wplace.live/s0/pixel/${CONFIG.START_X}/${CONFIG.START_Y}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-      body: JSON.stringify({ coords: [x, y], colors: [randomColor] })
-    });
-  };
+  const realX = CONFIG.START_X + x;
+  const realY = CONFIG.START_Y + y;
+
+  const chunkX = Math.floor(realX / 100) * 100;
+  const chunkY = Math.floor(realY / 100) * 100;
+
+  const randomColor = Math.floor(Math.random() * 31) + 1;
+
+  return await fetchAPI(`https://backend.wplace.live/s0/pixel/${chunkX}/${chunkY}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+    body: JSON.stringify({ coords: [realX, realY], colors: [randomColor] })
+  });
+};
 
   const getCharge = async () => {
     const data = await fetchAPI('https://backend.wplace.live/me');
