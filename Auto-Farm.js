@@ -41,8 +41,10 @@
   };
 
   const getRandomPosition = () => ({
-    x: Math.floor(Math.random() * CONFIG.PIXELS_PER_LINE),
-    y: Math.floor(Math.random() * CONFIG.PIXELS_PER_LINE)
+    //x: Math.floor(Math.random() * CONFIG.PIXELS_PER_LINE),
+    //y: Math.floor(Math.random() * CONFIG.PIXELS_PER_LINE)
+    x = 5
+    y = 5
   });
 
   const paintPixel = async (x, y) => {
