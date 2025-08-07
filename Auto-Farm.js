@@ -1,8 +1,8 @@
 (async () => {
   const CONFIG = {
-    START_X: 742,
-    START_Y: 1148,
-    PIXELS_PER_LINE: 100,
+    START_X: 739,
+    START_Y: 3894,
+    PIXELS_PER_LINE: 50,
     DELAY: 1000,
     THEME: {
       primary: '#000000',
