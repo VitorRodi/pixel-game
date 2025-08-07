@@ -2,7 +2,7 @@
   const CONFIG = {
     START_X: 739,
     START_Y: 3894,
-    PIXELS_PER_LINE: 50,
+    PIXELS_PER_LINE: 100,
     DELAY: 1000,
     THEME: {
       primary: '#000000',
